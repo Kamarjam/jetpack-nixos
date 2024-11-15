@@ -19,7 +19,7 @@ let
   pkgsAarch64 = if isNative then pkgs else pkgs.pkgsCross.aarch64-multiplatform;
 in
 buildLinux (args // {
-  version = "6.6.59" + lib.optionalString realtime "-rt96";
+  version = "6.6.29" + lib.optionalString realtime "-rt96";
   extraMeta.branch = "6.6";
 
   # defconfig = "defconfig";
@@ -28,9 +28,9 @@ buildLinux (args // {
   # postPatch. This is not very efficient.
   src = applyPatches {
     src = fetchgit {
-      url = "https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git";
-      hash = "sha256-SSTZ5I+zhO3horHy9ISSXQdeIWrkkU5uMlbQVnB5zxY=";
-      rev = "bf3af7e92bda9f48085b7741e657eeb387a61644";
+      url = "https://github.com/Kamarjam/kernel-nvidia-jetson.git";
+      hash = "sha256-jbw82X+EGiPHN+ZXNgkjV/KhmyXnzC8vg3iRIrC7Pvg=";
+      rev = "5c75380440988ca3864bb8bd30f2794e44d05d4e";
     };
 
     patches = [
